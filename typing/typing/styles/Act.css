@@ -1,0 +1,6 @@
+.mainBOX div > span > span.Rignt{
+  background-color: #A9F5D0;
+}
+.mainBOX div > span > span.Wrong{
+  background-color: #F78181;
+}
