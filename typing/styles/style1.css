@@ -2,6 +2,7 @@
   margin:0;
   padding:0;
 }
+/*****************header*************************/
 head{
   width: 100%;
   position: absolute;top: 0;
@@ -28,20 +29,94 @@ header .h2{
 header .h2 img{
   margin: -4px;
 }
+/***************typing area***********************/
 .mainBOX{
   display: flex;
   flex-wrap: wrap;
   position: absolute;top:100px;left:20%;
   width: 54%;
-  padding: 5px;
-  border-bottom:1px solid #A4A4A4;
 }
 .mainBOX > div{
   margin: 10px 5px;
-  display: inline-block;
 }
-.mainBOX span{
+.mainBOX div > span{
   font-size: 38px; 
+  display: inline-block;
   color: #6E6E6E;
-  margin: 0 1px;
+  margin: 0 14px;
 }
+#Passage{
+  width: 100%;
+  height: 100%;
+}
+#Line{
+  width:110%;
+  height: 1px;
+  background-color: #A4A4A4;
+}
+#Linemain {
+  width: 1%;
+  height: 3px;
+  background-color: #81BEF7;
+  position: relative;bottom: 2px;
+}
+#Linehead {
+  display: inline;
+  border-radius: 25%;
+  border: solid #0174DF 2px;
+  background-color: #0174DF;
+  height: 2px;
+  float: right;
+  position: relative;bottom: 2px;
+}
+/***************typing data*************************/
+.Data{
+  position: absolute;top: 350px;right: 13%;
+  width: 110px;
+  color: #585858;
+}
+.Speed{
+  height: 80px;
+  width: 100%;
+  margin: 30px 10px;
+}
+.SpeedHead{
+  font-size: 17px;
+}
+.SpeedDate{
+  display: inline;
+  font-size: 34px;
+}
+.SpeedPs{
+  display: inline-block;
+  font-size: 15px;
+  position: relative;bottom: 18px;
+}
+.Accurecy{
+  height: 80px;
+  width: 100%;
+  margin: 30px 10px;
+}
+.AccurecyHead{
+  font-size: 17px;
+}
+.AccurecyDate{
+  display: inline;
+  font-size: 34px;
+}
+/*****************button***********************/
+.startbutton{
+  outline:none; 
+  border: 0;
+  height: 42px;
+  width: 125px;
+  background-color: white;
+}
+.startbutton img{
+  height:100%;
+  width: 100%;
+}
+.headerStop{
+  display: none;
+}
+

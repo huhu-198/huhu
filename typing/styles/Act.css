@@ -4,3 +4,11 @@
 .mainBOX div > span > span.Wrong{
   background-color: #F78181;
 }
+
+.everySpeed{
+  position: relative;
+  top: 0;
+  left: 5px;
+  font-size: 6px;
+
+}
