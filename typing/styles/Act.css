@@ -1,0 +1,93 @@
+.mainBOX div > span > span.Rignt{
+  background-color: #A9F5D0;
+}
+.mainBOX div > span > span.Wrong{
+  background-color: #F78181;
+}
+
+.everySpeed{
+  position: relative;
+  font-size: 5px;
+}
+
+/*****************button***********************/
+.startbutton{
+  outline:none; 
+  border: 0;
+  height: 42px;
+  width: 125px;
+  background-color: white;
+  position: absolute;;top:70px;left:22%;
+}
+.startbutton img{
+  height:100%;
+  width: 100%;
+}
+.headerStop{
+  display: none;
+}
+
+/*****************finish***********************/
+.pastMain{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #424242;
+  opacity: 0.9;
+  display: none;
+}
+.pastBox{
+  width: 0;
+  height: 0;
+  position: absolute;top: 27%;left: 30%;
+  border:300px solid transparent;
+  border-radius:50%;
+  border-top-color:#8696a7;
+  border-top-left-radius: 45%;
+  border-top-right-radius: 45%;
+}
+.pastBox img{
+  height: 100%;
+}
+.congratulation{
+  position: relative;bottom: 270px;right: 100px;
+  font-size: 30px;
+  color: #DF0101;
+  font-weight: bold;
+
+}
+.starWstarL{
+  position: absolute;bottom: 130px;right:50px;
+  height: 50px;
+  opacity: 0.6;
+  transform: rotate(-30deg);
+}
+.starWstarM{
+  position: absolute;bottom: 150px;left: -25px;
+  height: 50px;
+  opacity: 0.6;
+
+}
+.starWstarR{
+  position: absolute;bottom: 130px;left: 50px;
+  height: 50px;
+  opacity: 0.6;
+  transform: rotate(-10deg);
+}
+.starBstarL{
+  position: absolute;bottom: 125px;right:44px;
+  height: 65px;
+  transform: rotate(-30deg);
+  opacity: 0;
+}
+.starBstarM{
+  position: absolute;bottom: 145px;left: -34px;
+  height: 65px;
+  opacity: 0;
+}
+.starBstarR{
+  position: absolute;bottom: 125px;left:44px;
+  height: 65px;
+  transform: rotate(-10deg);
+  opacity: 0;
+}

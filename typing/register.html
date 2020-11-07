@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Load typeClub</title>
+    <link rel="shortcut icon" type="image/png" href="images/shortcut icon.png">
+    <link rel="stylesheet" type="text/css" href="styles/register.css">
+  </head>
+  <body>
+    <div class="formBox">
+      <h1>register</h1>
+      <form id="registerForm">
+        <div class="nameLine">
+          <label>name</label>
+          <input type="text" name="registername" id="registername">
+          <span class="nameError"></span>
+        </div>
+        <div class="emailLine">
+          <label>email</label>
+          <input type="text" name="registeremail" id="registeremail">
+          <span class="emailError"></span>
+        </div>       
+        <div class="passwordLine">
+          <label>password</label>
+          <input type="password" name="registerpassword" id="registerpassword">
+          <span class="passwordError"></span>
+        </div>  
+        <div class="submitLine">
+          <input class="registersubmit" type="button" value="register" onclick="registerSubmit()">
+          <input class="loadsubmit" type="button" value="load" onclick="window.location='load.html'">
+        </div>
+      </form>
+
+    </div>
+
+
+
+    <script src="script/loadin.js"></script>
+
+  </body>
+</html>

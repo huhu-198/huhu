@@ -1,0 +1,48 @@
+*{
+  margin:0;
+  padding:0;
+}
+body{
+  overflow-x:hidden;
+  overflow-y:hidden;
+  background-color:  rgb(214, 214, 214);
+}
+.formBox{
+  padding:50px;
+  border:solid 2px #656565;
+  background-color:  rgb(193, 203, 215);
+  width: 30%;
+  height: 250px;
+  text-align: center;
+  position: absolute;top:200px;left: 30%;
+  border-radius: 3% ;
+}
+.formBox h1{
+  font-size: 50px;
+  margin: -15px 0 10px 0;
+}
+.formBox div{
+  padding: 15px;
+  font-size: 20px;
+  width: 350px;
+
+}
+.formBox input{
+  height: 25px;
+  float: right;
+}
+.formBox label{
+  position: relative;left: 10px;
+
+}
+.formBox .loadsubmit , .formBox .registersubmit{
+  height: 30px;
+  width: 90px;
+  border-radius: 5px;
+  font-size: 17px;
+  margin: 0 20px;
+}
+
+
+
+
