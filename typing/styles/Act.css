@@ -1,15 +1,14 @@
+/***************typing BOX*******************/
 .mainBOX div > span > span.Rignt{
   background-color: #A9F5D0;
 }
 .mainBOX div > span > span.Wrong{
   background-color: #F78181;
 }
-
 .everySpeed{
   position: relative;
   font-size: 5px;
 }
-
 /*****************button***********************/
 .startbutton{
   outline:none; 
@@ -26,7 +25,6 @@
 .headerStop{
   display: none;
 }
-
 /*****************finish***********************/
 .pastMain{
   position: absolute;
@@ -54,7 +52,6 @@
   font-size: 30px;
   color: #DF0101;
   font-weight: bold;
-
 }
 .starWstarL{
   position: absolute;bottom: 130px;right:50px;
@@ -66,7 +63,6 @@
   position: absolute;bottom: 150px;left: -25px;
   height: 50px;
   opacity: 0.6;
-
 }
 .starWstarR{
   position: absolute;bottom: 130px;left: 50px;
@@ -90,4 +86,18 @@
   height: 65px;
   transform: rotate(-10deg);
   opacity: 0;
+}
+.level{
+  position: absolute;bottom: -125px;left: -172px;
+  width: 400px;
+}
+.level div{
+  margin: 30px;
+  padding: 20px;
+  background-color: #81BEF7;
+  font-size: 20px;
+  color: white;
+  border-radius: 10px;
+  border: solid 0;
+  display: inline-block;
 }

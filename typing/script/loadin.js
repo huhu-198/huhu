@@ -8,28 +8,7 @@ let loademail = document.querySelector("#loademail");
 let loadpassword = document.querySelector("#loadpassword");
 let keywords = window.localStorage;
 
-
-function getlocalStorage(lname,lemail,lpassword) {
-    let email=keywords.getItem(lname);
-    let password=keywords.getItem(lemail);
-    if(password == lpassword && email == lemail){
-      alert("welcome!");
-      window.location.href="main.html";
-    }else if(email == null){
-      alert("We can't find the user, please goto register");
-    }else{
-      alert("Your email or password is wrong, please try again");
-    }
-}
-
-function loadSubmit(){
-  let lname = loadname.value;
-  let lemail = loademail.value;
-  let lpassword = loadpassword.value;
-  getlocalStorage(lname,lemail,lpassword);
-}
-
-
+// submit register data
 function registerSubmit(){
   let rname = registername.value;
   let remail = registeremail.value;
@@ -45,16 +24,40 @@ function registerSubmit(){
     alert("Can't input empty!");
   }
 }
-
-
+//prevent name or email Repeat
 function preventRepeat(rname,remail){
   if(keywords.getItem(rname) == null && keywords.getItem(remail) == null)
     return true;
   return false;
 }
 
+// submit load data
+function loadSubmit(){
+  let lname = loadname.value;
+  let lemail = loademail.value;
+  let lpassword = loadpassword.value;
+  getlocalStorage(lname,lemail,lpassword);
+}
+// get data and search
+function getlocalStorage(lname,lemail,lpassword) {
+    let email=keywords.getItem(lname);
+    let password=keywords.getItem(lemail);
+    if(password == lpassword && email == lemail){
+      alert("welcome!");
+      window.location.href = "main.html";
+      window.localStorage.setItem("now",lname);
+      if(user.innerHTML == lname) console.log(1);
+    }else if(email == null){
+      alert("We can't find the user, please goto register");
+    }else{
+      alert("Your email or password is wrong, please try again");
+    }
+}
+
+
+// Clear all data
 function Clear(){
   keywords.clear();
 }
-//Clear();
+
 

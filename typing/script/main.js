@@ -1,16 +1,14 @@
 //
 let typeTime = 0;
 let textPassage= [[],[]];
-  textPassage[0] = "practice makes perfect. every "+ 
-  "time you repeat this lesson, "+  
+  textPassage[1] = "practice makes perfect. every time you repeat this lesson, "+  
   "your speed will increase."
-  textPassage[1] = "practice can't get perfect. every "+ 
-  "time you repeat this lesson, "+  
-  "will be useless."
-  textPassage[2] = "practice is important. every "+ 
-  "time you repeat this lesson, "+  
-  "will be a treasure."
+  textPassage[2] = "practice can't get perfect. every time you repeat this lesson, "+  
+  "your speed can't change.."
+  textPassage[3] = "practice makes perfect. every time you repeat this lesson, "+  
+  "your speed will increase..."
 let Passage = document.querySelector("#Passage");
+let showlevel = document.querySelector(".showlevel");
 let wordsNumber = 0;
 let words = new Array;
 let letters = [[],[]];
@@ -40,9 +38,9 @@ let get = true;
 let accurecy;
 let now_Word;
 let timet = 0;
-let everyV= new Array;
-let everyVdata = new Array ;
-  everyVdata[0]=0;
+let everyV = new Array;
+let everyVdata = new Array;
+    everyVdata[0] = 0;
 let headerStart = document.querySelector(".headerStart");
 let headerStop = document.querySelector(".headerStop");
 let startbuttonimg = document.querySelector(".startbuttonimg");
@@ -53,31 +51,43 @@ let starBstarR = document.querySelector(".starBstarR");
 let congratulation = document.querySelector(".congratulation");
 let showt = 0;
 let gameMark;
+let userNamemark = new Array;
 let marks = new Array;
-let marknumber = 0;
-
-
-
-showPassage();
-
+let marknumber = 1;
+let user = document.querySelector(".user>a");
+let mymarks = document.querySelector(".marks");
+let level1Mark = document.querySelector(".level1Mark>span");
+let level1Accurecy = document.querySelector(".level1Accurecy>span");
+let level1Speed = document.querySelector(".level1Speed>span");
+let level2Mark = document.querySelector(".level2Mark>span");
+let level2Accurecy = document.querySelector(".level2Accurecy>span");
+let level2Speed = document.querySelector(".level2Speed>span");
+let level3Mark = document.querySelector(".level3Mark>span");
+let level3Accurecy = document.querySelector(".level3Accurecy>span");
+let level3Speed = document.querySelector(".level3Speed>span");
 
 
 //get word
+showPassage();
 function showPassage() {  
-  words = textPassage[0].split(" ");
+  userName = window.localStorage.getItem("now");
+  if(userName != null)  
+    user.innerHTML = userName;
+  showlevel.innerHTML = "level&nbsp" + marknumber;
+  words = textPassage[marknumber].split(" ");
   wordsNumber = words.length;
   for(let i = 0; i < wordsNumber; i++){
     now_Word = document.createElement('span');
     if(i < wordsNumber-1)
       words[i] = words[i] + [" "];
     Passage.appendChild(now_Word);
-      everyV[i]=document.createElement('div')
+      everyV[i] = document.createElement('div')
       now_Word.appendChild(everyV[i]);
       everyV[i].innerHTML = ("&nbsp");
       everyV[i].classList.add('everySpeed');
 
     letters[i] = words[i].split("");
-    for(let j = 0; j <letters[i].length; j++){
+    for(let j = 0; j < letters[i].length; j++){
       let now_letter = document.createElement('span');
       now_letter.innerHTML = letters[i][j];
       now_letter.classList.add('type_letter');
@@ -87,8 +97,8 @@ function showPassage() {
   }
 }
 
-//get code
-function startGame() { 
+//get keyboardcode
+function startGame(){ 
   document.onkeydown=function(event){
     if(!get)
       return ;
@@ -97,53 +107,49 @@ function startGame() {
     if(theLetter >= "A" && theLetter <= "Z") 
       theLetter = String.fromCharCode(e.keyCode+32);
     else if(e.keyCode >= 188 && e.keyCode <= 190) 
-      theLetter =String.fromCharCode(e.keyCode-144);
+      theLetter = String.fromCharCode(e.keyCode-144);
     else if(e.keyCode == 186) 
       theLetter = ";";
     else if(e.keyCode == 191) 
       theLetter = "?";
     else if(e.keyCode == 222) 
-      theLetter = "\"";
+      theLetter = "\'";
     startletterdNumber++;
     allNumber++;
     if(startletterdNumber >= letters[startwordNumber].length){
       startwordNumber++;
       startletterdNumber = 0;
     }
-
     // compare
     letterArr = document.querySelectorAll('.type_letter');
     if(startletterdNumber == letters[startwordNumber].length-1){
       testWords++;
       everyVdata[testWords] = testTime;
-
     //game over
       if(testWords == words.length){                                                          //finish the passage
         gameOver();
-        return;
+        return ;
       }
     }
     if(letters[startwordNumber][startletterdNumber] == theLetter){    
       letterArr[allNumber].classList.add('Rignt');  
-      if(startletterdNumber == letters[startwordNumber].length-1){                            //finish a word
-        let wordV = parseInt(60/(everyVdata[startwordNumber+1]-everyVdata[startwordNumber]));
+      if(startletterdNumber == letters[startwordNumber].length-1){                                //finish a word
+        let wordV = parseInt(60 / (everyVdata[startwordNumber+1] - everyVdata[startwordNumber]));
         everyV[startwordNumber].innerHTML = wordV + "wpm";
-        if(tf[startwordNumber]){                                                              //the word right
+        if(tf[startwordNumber]){                                                                  //the word right
         right.play();
         everyV[startwordNumber].innerHTML = everyV[startwordNumber].innerHTML + "&nbspgood";
         }
       }
-    }else {                                                                                   //the word wrong
+    }else {                                                                                       //the word wrong
       letterArr[allNumber].classList.add('Wrong');                            
       errorNumber++;
       error.play();
       tf[startwordNumber] = false;
     }
-    linef = (allNumber+1)/letterArr.length;
+    linef = (allNumber+1) / letterArr.length;
     Line.style.width = (linef*100) + "%";
-
-    //record errors number
-    recordError();
+    recordError();                                                                                //record errors number
   }
 }
 
@@ -209,8 +215,13 @@ function reset(){
   Passage.innerHTML = "";
   showPassage();
   pastMain.style.display = "none";
-  clearInterval(timershow, 10); 
+  clearInterval(timershow); 
   gameMark = 0;
+  starBstarL.style.opacity = 0;
+  starBstarM.style.opacity = 0;
+  starBstarR.style.opacity = 0;
+  showt = 0;
+  mymarks.style.display == "none";
 }
 
 // gameover
@@ -222,15 +233,30 @@ function gameOver(){
     gameMark = 0;
     congratulation.innerHTML = "&nbsp&nbsp&nbsp&nbsp&nbsp&nbspdefeat";
     defeat.play();
-  }else if(accurecy < 80)
+  }else if(accurecy < 80  || speed < 15)
     gameMark = 1;
-  else if(accurecy < 100 || speed < 30)
+  else if(accurecy < 100 || speed < 20)
     gameMark = 2;
   else 
     gameMark = 3;
   timershow = setInterval(showTimer, 10);
-  marks[marknumber] = gameMark;
-  marknumber++;
+  
+  // save user's data  (avarage)  (name levelnmber:mark accurecy speed times) 
+  let levelmark = keywords.getItem(userName + " " + marknumber);
+  if (levelmark == null){
+    window.localStorage.setItem(userName + " " + marknumber, gameMark + " " + accurecy + " " + speed + " 1");
+    return;
+  }
+  let theMark = levelmark.split(" ");
+  let avarageMark = theMark[0];
+  let avarageAccurecy = theMark[1];
+  let avarageSpeed = theMark[2];
+  let timesNumber = theMark[3];
+  timesNumber++;
+  avarageMark = ((avarageMark + gameMark) / timesNumber).toFixed(1);
+  avarageAccurecy = ((avarageAccurecy + gameMark) / timesNumber).toFixed(1);
+  avarageSpeed = ((avarageSpeed + gameMark) / timesNumber).toFixed(1);
+  window.localStorage.setItem(userName + " " + marknumber, avarageMark + " " + avarageAccurecy + " " + avarageSpeed + " " + timesNumber);
 }
 
 //showTimer
@@ -246,12 +272,52 @@ function showTimer(){
   }else if(showt > 150 && showt <= 200 && gameMark >= 3){
     starBstarR.style.opacity = (showt-150)/50;
     starBstarR.style.transform= "rotate("+(15*showt-130)+"deg)";
-  }
+  }else if(showt > 2500)
+    clearInterval(timershow);
 }
 
 // show my mark
-function loadSubmit(){
-  
+function myMark(){
+  if(mymarks.style.display == "none")
+    mymarks.style.display = "block";
+  else
+    mymarks.style.display = "none";
+  for(let i = 1 ; i <= 3 ; i++){
+    let levelmark = keywords.getItem(userName + " " + i);
+    if (levelmark == null)
+      return;
+    let theMark = levelmark.split(" ");
+    let avarageMark = theMark[0];
+    let avarageAccurecy = theMark[1];
+    let avarageSpeed = theMark[2];
+    if(i == 1){
+      level1Mark.innerHTML = avarageMark;
+      level1Accurecy.innerHTML = avarageAccurecy;
+      level1Speed.innerHTML = avarageSpeed;
+    }else if (i == 2){
+      level2Mark.innerHTML = avarageMark;
+      level2Accurecy.innerHTML = avarageAccurecy;
+      level2Speed.innerHTML = avarageSpeed;
+    }else if (i == 3){
+      level3Mark.innerHTML = avarageMark;
+      level3Accurecy.innerHTML = avarageAccurecy;
+      level3Speed.innerHTML = avarageSpeed;
+    }
+  }
+}
+
+// choose level
+function level1(){
+  marknumber = 1;
+  reset();
+}
+function level2(){
+  marknumber = 2;
+  reset();
+}
+function level3(){
+  marknumber = 3;
+  reset();
 }
   
   

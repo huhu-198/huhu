@@ -26,7 +26,7 @@ header .hLeft div{
   font-size: 22px;
   color: #585858;
 }
-header .hLeft div span{
+header .hLeft div a span{
   display: inline-block;
   margin: 0 10px;
   background-color: rgba(39, 116, 189, 0.76);
@@ -35,12 +35,31 @@ header .hLeft div span{
   font-size: 16px;
   color:white;
 }
+.showlevel{
+  display: inline-block;
+  margin: 0 60px;
+  padding: 5px 7px 0 0;
+  border-radius: 5px;
+  font-size: 20px;
+  color:rgba(39, 116, 189, 0.76);
+}
 header .hRight{
   height: 90%;
   position: absolute;top: 0;right: 10%;
 }
 header .hRight img{
   height: 45px;
+}
+.user{
+  float: right;
+  margin: 10px 30px 0 0;
+  padding: 4px 6px;
+  border-radius: 3px;
+  background-color:#58D3F7;
+}
+.user a{
+  text-decoration:none;
+  color: #EFEFFB;
 }
 /***************typing area***********************/
 .mainBOX{
@@ -118,5 +137,18 @@ header .hRight img{
   display: inline;
   font-size: 34px;
 }
-
+/*************mark************/
+.marks{
+  position: absolute;top: 70px;left: 10px;
+  width: 250px;
+  height: 380px;
+  background-color:#58ACFA;
+  color: white;
+  opacity: 0.6;
+  border-radius: 10px;
+  display: none;
+}
+.marks div{
+  margin: 8px 10px 20px 20px;
+}
 

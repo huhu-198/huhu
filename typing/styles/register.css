@@ -25,7 +25,6 @@ body{
   padding: 15px;
   font-size: 20px;
   width: 350px;
-
 }
 .formBox input{
   height: 25px;
@@ -33,7 +32,6 @@ body{
 }
 .formBox label{
   position: relative;left: 10px;
-
 }
 .formBox .registersubmit,.formBox .loadsubmit{
   height: 30px;

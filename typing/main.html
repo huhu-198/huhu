@@ -9,7 +9,11 @@
     <header>
       <div class="hLeft">
         <a href="javascript:;"><img src="images/back.png" height="40px"></a>
-        <div>The type lesson |<a href="javascript:myMark"><span> my marks</span></a></div>
+        <div>
+          The type lesson |
+          <a href="javascript:myMark();"><span> my marks</span></a>
+          <span class="showlevel">level 1</span>
+        </div>
       </div>
       <div class="hRight">        
         <a href="javascript:;"><img class="headerStart" src="images/start.png" onclick="Start()"></a>
@@ -21,6 +25,7 @@
         <a href="javascript:;"><img src="images/color.png"></a>
         <a href="javascript:;"><img src="images/setting.png"></a>
       </div>
+      <div class="user"><a href="load.html">load</a></div>
     </header>
   </head>
   <body>
@@ -35,9 +40,7 @@
     <button class="startbutton" onclick="Start()">
       <img class="startbuttonimg" src="images/startbutton.png">
     </button>
-    <div class="keyBoard">
-
-    </div>
+    <div class="keyBoard"></div>
     <div class="Data">
       <div class="Speed">
         <p class="SpeedHead">Speed</p>
@@ -50,6 +53,17 @@
         <p class="AccurecyDate">100%</p>
       </div>
     </div>
+    <div class="marks">
+      <div class="level1Mark">level1 average Mark: <span>0</span></div>
+      <div class="level1Accurecy">level1 average Avarage: <span>0</span></div>
+      <div class="level1Speed">level1 average Speed: <span>0</span></div>
+      <div class="level2Mark">level2 average Mark: <span>0</span></div>
+      <div class="level2Accurecy">level2 average Avarage: <span>0</span></div>
+      <div class="level2Speed">level2 average Speed: <span>0</span></div>
+      <div class="level3Mark">level3 average Mark: <span>0</span></div>
+      <div class="level3Accurecy">level3 average Avarage: <span>0</span></div>
+      <div class="level3Speed">level3 average Speed: <span>0</span></div>
+    </div>
     <div class="pastMain">
       <div class="pastBox">
         <div class="congratulation">congratulation!</div>
@@ -59,16 +73,18 @@
         <div class="starBstarL"><img src="images/starblack.png"></div>
         <div class="starBstarM"><img src="images/starblack.png"></div>
         <div class="starBstarR"><img src="images/starblack.png"></div>
-
+        <div class="level">
+          <div class="level1" onclick="level1()">1</div>
+          <div class="level2" onclick="level2()">2</div>
+          <div class="level3" onclick="level3()">3</div>
+        </div>
       </div>
     </div>
-
     <audio class="right" src="music/right.mp3" type="audio/mp3"></audio>
     <audio class="error" src="music/Error.mp3" type="audio/mp3"></audio>
     <audio class="past" src="music/past.mp3" type="audio/mp3"></audio>
     <audio class="defeat" src="music/defeat.mp3" type="audio/mp3"></audio>
     <script src="script/main.js"></script>
-    <script src="script/startbutton.js"></script>
-
+    <script src="script/loadin.js"></script>
   </body>
 </html>
