@@ -6,6 +6,7 @@ let registerpassword = document.querySelector("#registerpassword");
 let loadname = document.querySelector("#loadname");
 let loademail = document.querySelector("#loademail");
 let loadpassword = document.querySelector("#loadpassword");
+let clearMusic = document.querySelector(".clearMusic")
 let keywords = window.localStorage;
 
 // submit register data
@@ -58,6 +59,7 @@ function getlocalStorage(lname,lemail,lpassword) {
 // Clear all data
 function Clear(){
   keywords.clear();
+  clearMusic.play();
 }
 
 

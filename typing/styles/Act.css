@@ -16,14 +16,11 @@
   height: 42px;
   width: 125px;
   background-color: white;
-  position: absolute;;top:70px;left:22%;
+  position: absolute;top:70px;left:302px;
 }
 .startbutton img{
   height:100%;
   width: 100%;
-}
-.headerStop{
-  display: none;
 }
 /*****************finish***********************/
 .pastMain{
@@ -101,3 +98,28 @@
   border: solid 0;
   display: inline-block;
 }
+
+/**************backbottom******************/
+.bb{
+  height: 42px;
+  width: 50px;
+  position: absolute;top: 0;left: 0;
+  background-color: white;
+  z-index: 5;
+
+}
+.Back div{
+  height: 1px;
+  width: 35px;
+  background-color: rgba(39, 116, 189, 0.76);
+  border-bottom:solid rgba(39, 116, 189, 0.76) 1px;
+}
+.backtopLine{
+  position: absolute;top: 8px;left: 4px;
+}
+.backMidLine{
+  position: absolute;top: 20px;left: 4px;
+}
+.backBottomLine{
+  position: absolute;top: 30px;left: 4px;
+} 

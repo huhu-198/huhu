@@ -50,12 +50,34 @@ header .hRight{
 header .hRight img{
   height: 45px;
 }
+.hRightBack{
+  position: absolute;top: 0;right: 149px;
+  opacity:0.5;
+}
+.hRightBack div{
+  height: 41px;
+  width: 47px;
+  margin: 0 5px;
+  display: inline-block;
+  background-color: #585858;
+  border: solid #585858;
+  opacity:0;
+}
+.headerStop{
+  display: none;
+}
+.hRightBack div.headerStopback{
+  display: none;
+}
+.hRightBack div:hover{
+  opacity:0.6;
+}
 .user{
   float: right;
   margin: 10px 30px 0 0;
   padding: 4px 6px;
   border-radius: 3px;
-  background-color:#58D3F7;
+  background-color:#52bbdbda;
 }
 .user a{
   text-decoration:none;

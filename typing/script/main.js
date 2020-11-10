@@ -32,6 +32,7 @@ let testTime = 0.1;
 let testWords = 0;
 let timer;
 let timershow;
+let timerback;
 let speed = 0;
 let letterArr;
 let get = true;
@@ -43,6 +44,9 @@ let everyVdata = new Array;
     everyVdata[0] = 0;
 let headerStart = document.querySelector(".headerStart");
 let headerStop = document.querySelector(".headerStop");
+let headerStartback = document.querySelector(".headerStartback");
+let headerStopback = document.querySelector(".headerStopback");
+let startbutton = document.querySelector(".startbutton");
 let startbuttonimg = document.querySelector(".startbuttonimg");
 let pastMain = document.querySelector(".pastMain");
 let starBstarL = document.querySelector(".starBstarL");
@@ -66,8 +70,34 @@ let level3Mark = document.querySelector(".level3Mark>span");
 let level3Accurecy = document.querySelector(".level3Accurecy>span");
 let level3Speed = document.querySelector(".level3Speed>span");
 
+let Back = document.querySelector(".Back");
+let backMidLine = document.querySelector(".backMidLine");
+let backBottomLine = document.querySelector(".backBottomLine");
+let backt = 0;
 
-//get word
+// back button act
+/*
+Back.onmouseover = function(){
+  timerback = setInterval(backtimer, 10);
+}
+function backtimer(){
+  backt++;
+  backMidLine.style.transform = "rotate("+(0.4*backt)+"deg) ";
+  backBottomLine.style.transform = "rotate("+(0.9*backt)+"deg)";//+"scale(1-0.001*backt)";
+  backBottomLine.style.top = 0.23*backt + "px";
+  backBottomLine.style.left = -0.12*backt + "px";
+  if(backt == 100)
+  console.log(1);
+    clearInterval(timerback);
+
+
+  
+  starBstarL.style.transform= "rotate("+(15*showt-60)+"deg)";
+}
+*/
+
+
+// get word
 showPassage();
 function showPassage() {  
   userName = window.localStorage.getItem("now");
@@ -131,6 +161,18 @@ function startGame(){
         return ;
       }
     }
+
+    // change startbutton
+    let h=letterArr[allNumber].offsetTop;
+    let l=letterArr[allNumber].offsetLeft;
+    if(h == 26){
+      startbutton.style.left = (l+295) + "px";
+      startbutton.style.top = 70 + "px";
+    }else{
+      startbutton.style.top = (h+90) + "px";
+      startbutton.style.left = 180 + "px";
+    }
+
     if(letters[startwordNumber][startletterdNumber] == theLetter){    
       letterArr[allNumber].classList.add('Rignt');  
       if(startletterdNumber == letters[startwordNumber].length-1){                                //finish a word
@@ -160,7 +202,9 @@ function Start(){
   timer = setInterval(nowTimer, 10);
   get = true;
   headerStart.style.display = "none";
+  headerStartback.style.display = "none";
   startbuttonimg.style.display = "none";
+  headerStopback.style.display = "inline-block";
   headerStop.style.display = "inline-block";
 }
 
@@ -169,8 +213,10 @@ function stopTimer(){
   clearInterval(timer); 
   get = false;
   headerStop.style.display = "none";
+  headerStopback.style.display = "none";
   startbuttonimg.style.display = "block";
   headerStart.style.display = "inline-block";
+  headerStartback.style.display = "inline-block";
 }
 
 //update accurecy 
@@ -221,7 +267,9 @@ function reset(){
   starBstarM.style.opacity = 0;
   starBstarR.style.opacity = 0;
   showt = 0;
-  mymarks.style.display == "none";
+  mymarks.style.display = "none";
+  startbutton.style.left = 302 + "px";
+  startbutton.style.top = 70 + "px";
 }
 
 // gameover
